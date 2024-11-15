@@ -1,5 +1,23 @@
 # ERINO-Contact-management-system
 
+### Add Contact Page
+<img width="1440" alt="Screenshot 2024-11-16 at 2 27 04 AM" src="https://github.com/user-attachments/assets/d8ba7de5-dbc1-4bf5-9491-7a80aea613c2">
+
+- A form with fields for **First Name**, **Last Name**, **Phone Number**, **Email**, **Company**, and **Job Title**.
+- Icons accompany each input field, with **Submit** and **Reset** buttons below.
+- Styled with a light blue background and a bold "Add Contact" heading.
+
+ ### Contact List Page 
+<img width="1440" alt="Screenshot 2024-11-16 at 2 27 04 AM" src="https://github.com/user-attachments/assets/a3b5ad7e-cc3f-43de-97c8-09bbecd629d1">
+
+- Displays a searchable, paginated table of contacts with columns for **Name**, **Email**, **Phone Number**, **Company**, **Job Title**, and **Actions**.
+- **Edit** and **Delete** action icons enable contact management.
+- Soft blue theme with clean layout for easy navigation.
+
+
+
+
+
 ## Project Description
 
 This Contact Management System is a full-stack application built with React, Node.js, Express, and MongoDB. It allows users to add, edit, delete, and view contacts with essential details like name, email, phone number, company, and job title. The frontend is designed using Material UI (MUI) to create a clean and responsive user interface, while the backend is powered by Node.js and Express with MongoDB as the database to store contact information.
