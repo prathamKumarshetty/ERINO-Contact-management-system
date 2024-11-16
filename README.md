@@ -76,11 +76,12 @@ This Contact Management System is a full-stack application built with React, Nod
    ## Create a .env file in the backend directory with the following variables:
    ### In my project username is "prathamsss" and password for my mongoDB is "Pratham" , 
    ### customize the username and password with respect to your mongoDB atlat.
-<img width="800" alt="Screenshot 2024-11-16 at 11 41 38 AM" src="https://github.com/user-attachments/assets/a2412537-e785-4ab9-95b8-b91df013e636">
-
-     ```bash
+    ```bash
     MONGODB_URI=mongodb+srv://<your-username>:<your-password>@cluster0.mongodb.net/?retryWrites=true&w=majority
     PORT=5001
+<img width="800" alt="Screenshot 2024-11-16 at 11 41 38 AM" src="https://github.com/user-attachments/assets/a2412537-e785-4ab9-95b8-b91df013e636">
+
+    
 5. Run the backend server:
      ```bash
     cd ../backend
