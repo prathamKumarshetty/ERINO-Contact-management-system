@@ -1,7 +1,8 @@
 # ERINO-Contact-management-system
 
 ### Add Contact Page
-<img width="1440" alt="Screenshot 2024-11-16 at 2 27 04 AM" src="https://github.com/user-attachments/assets/d8ba7de5-dbc1-4bf5-9491-7a80aea613c2">
+<img width="1440" alt="Screenshot 2024-11-16 at 2 26 50 AM" src="https://github.com/user-attachments/assets/ac3cd283-7f40-423f-945c-e772abcbdb08">
+
 
 - A form with fields for **First Name**, **Last Name**, **Phone Number**, **Email**, **Company**, and **Job Title**.
 - Icons accompany each input field, with **Submit** and **Reset** buttons below.
