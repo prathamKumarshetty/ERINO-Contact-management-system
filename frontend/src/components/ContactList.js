@@ -1,7 +1,23 @@
-// frontend/src/components/ContactList.js
 import React, { useState } from 'react';
 import { deleteContact } from '../services/contactService';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Typography, TextField, Box, Pagination, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    IconButton,
+    Typography,
+    TextField,
+    Box,
+    Pagination,
+    MenuItem,
+    Select,
+    FormControl,
+    InputLabel,
+} from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -11,9 +27,13 @@ const ContactList = ({ contacts, fetchContacts, setSelectedContact }) => {
     const [rowsPerPage, setRowsPerPage] = useState(5);
 
     const handleDelete = async (id) => {
-        if (window.confirm("Are you sure you want to delete this contact?")) {
-            await deleteContact(id);
-            fetchContacts();
+        if (window.confirm('Are you sure you want to delete this contact?')) {
+            try {
+                await deleteContact(id);
+                fetchContacts();
+            } catch (error) {
+                console.error('Error deleting contact:', error); // Debugging step
+            }
         }
     };
 
@@ -43,14 +63,17 @@ const ContactList = ({ contacts, fetchContacts, setSelectedContact }) => {
     });
 
     // Calculate pagination based on current page and rows per page
-    const paginatedContacts = filteredContacts.slice((page - 1) * rowsPerPage, page * rowsPerPage);
+    const paginatedContacts = filteredContacts.slice(
+        (page - 1) * rowsPerPage,
+        page * rowsPerPage
+    );
 
     return (
         <Box sx={{ maxWidth: '100%', margin: 'auto', marginTop: 4 }}>
             <Typography variant="h6" align="center" gutterBottom>
                 Contact List
             </Typography>
-            
+
             {/* Search Box */}
             <TextField
                 label="Search Contacts"
@@ -79,21 +102,46 @@ const ContactList = ({ contacts, fetchContacts, setSelectedContact }) => {
                                 <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>
                                     {contact.firstName} {contact.lastName}
                                 </TableCell>
-                                <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{contact.email}</TableCell>
-                                <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{contact.phoneNumber}</TableCell>
-                                <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{contact.company}</TableCell>
-                                <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{contact.jobTitle}</TableCell>
+                                <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>
+                                    {contact.email}
+                                </TableCell>
+                                <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>
+                                    {contact.phoneNumber}
+                                </TableCell>
+                                <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>
+                                    {contact.company}
+                                </TableCell>
+                                <TableCell sx={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>
+                                    {contact.jobTitle}
+                                </TableCell>
                                 <TableCell>
                                     <Box display="flex" gap={1}>
+                                        {/* Debugging added for Edit */}
                                         <IconButton
-                                            onClick={() => setSelectedContact(contact)}
-                                            sx={{ backgroundColor: '#2196F3', color: 'white', '&:hover': { backgroundColor: '#1976D2' } }}
+                                            onClick={() => {
+                                                console.log('Edit Clicked, Contact:', contact);
+                                                setSelectedContact(contact);
+                                            }}
+                                            sx={{
+                                                backgroundColor: '#2196F3',
+                                                color: 'white',
+                                                '&:hover': { backgroundColor: '#1976D2' },
+                                            }}
                                         >
                                             <EditIcon />
                                         </IconButton>
+
+                                        {/* Debugging added for Delete */}
                                         <IconButton
-                                            onClick={() => handleDelete(contact._id)}
-                                            sx={{ backgroundColor: '#f44336', color: 'white', '&:hover': { backgroundColor: '#d32f2f' } }}
+                                            onClick={() => {
+                                                console.log('Delete Clicked, Contact ID:', contact._id);
+                                                handleDelete(contact._id);
+                                            }}
+                                            sx={{
+                                                backgroundColor: '#f44336',
+                                                color: 'white',
+                                                '&:hover': { backgroundColor: '#d32f2f' },
+                                            }}
                                         >
                                             <DeleteIcon />
                                         </IconButton>
