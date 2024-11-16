@@ -74,19 +74,23 @@ This Contact Management System is a full-stack application built with React, Nod
     npm install
 3. Set up MongoDB connection:
    ## Create a .env file in the backend directory with the following variables:
+   ### In my project username is "prathamsss" and password for my mongoDB is "Pratham" , 
+   ### customize the username and password with respect to your mongoDB atlat.
+<img width="800" alt="Screenshot 2024-11-16 at 11 41 38 AM" src="https://github.com/user-attachments/assets/a2412537-e785-4ab9-95b8-b91df013e636">
+
      ```bash
     MONGODB_URI=mongodb+srv://<your-username>:<your-password>@cluster0.mongodb.net/?retryWrites=true&w=majority
     PORT=5001
-4. Run the backend server:
+5. Run the backend server:
      ```bash
     cd ../backend
     npm start
      
-5. Run the frontend development server:
+6. Run the frontend development server:
      ```bash
     cd ../frontend
     npm start
-6. Access the application in your browser at http://localhost:3000.
+7. Access the application in your browser at http://localhost:3000.
 
 # Problems Faced
   1) Choosing between RDBMS (PostgreSQL) and NoSQL (MongoDB) was initially confusing. However, MongoDB was chosen due to its simplicity, flexibility, and because it’s schema-less, 
