@@ -17,7 +17,7 @@
 
 ## Drive Link for Project
 
-You can access the relevant project file through the following Google Drive link:
+You can access the demonstration of the project through this link:
 
 [Click here to download the file from Google Drive](https://drive.google.com/file/d/1FxQ4BNwaP7TMsyQZNpvCEUuUHSlS9cPi/view?usp=sharing)
 
