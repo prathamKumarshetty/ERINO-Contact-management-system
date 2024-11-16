@@ -1,20 +1,40 @@
 // frontend/src/pages/ViewContactsPage.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchContacts } from '../services/contactService';
 import ContactList from '../components/ContactList';
-import { Box, Typography } from '@mui/material';
+import ContactForm from '../components/ContactForm';
 
-const ViewContactsPage = ({ contacts, fetchContacts, setSelectedContact, page, setPage }) => {
+const ViewContactsPage = () => {
+    const [contacts, setContacts] = useState([]);
+    const [selectedContact, setSelectedContact] = useState(null); // For edit functionality
+
+    const fetchContactsData = async () => {
+        const data = await fetchContacts();
+        setContacts(data);
+    };
+
+    useEffect(() => {
+        fetchContactsData();
+    }, []);
+
     return (
-        <Box sx={{ padding: 4, textAlign: 'center' }}>
-            
-            <ContactList
-                contacts={contacts}
-                fetchContacts={fetchContacts}
-                setSelectedContact={setSelectedContact}
-                page={page}
-                setPage={setPage}
-            />
-        </Box>
+        <div>
+            {selectedContact ? (
+                // Render ContactForm if a contact is selected for editing
+                <ContactForm
+                    fetchContacts={fetchContactsData}
+                    selectedContact={selectedContact}
+                    setSelectedContact={setSelectedContact}
+                />
+            ) : (
+                // Render ContactList if no contact is being edited
+                <ContactList
+                    contacts={contacts}
+                    fetchContacts={fetchContactsData}
+                    setSelectedContact={setSelectedContact}
+                />
+            )}
+        </div>
     );
 };
 
